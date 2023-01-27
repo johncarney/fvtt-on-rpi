@@ -1,0 +1,3 @@
+data/*
+!*/.keep
+docker-compose.yml

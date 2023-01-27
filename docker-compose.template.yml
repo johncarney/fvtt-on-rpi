@@ -1,0 +1,23 @@
+version: '3.9'
+
+services:
+  foundry:
+    image: felddy/foundryvtt:release
+    hostname:     foundryvtt
+    network_mode: host
+    init: true
+    restart: "unless-stopped"
+    volumes:
+      - type:   bind
+        source: ~/fvtt-on-rpi/data
+        target: /data
+    environment:
+      # Foundry credentials
+      FOUNDRY_USERNAME: <your foundry username>
+      FOUNDRY_PASSWORD: <your foundry password>
+
+      # Server settings
+      FOUNDRY_ADMIN_KEY: <admin key for your server>
+
+      FOUNDRY_UID: <server user id>
+      FOUNDRY_GID: <server group id>
