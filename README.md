@@ -191,6 +191,7 @@ Module                        | Description                     | Recommended by
 [Perfect Vision]              | Monochrome darkvision           | [Recall Knowledge], [The Rules Lawyer]
 [PF2e Dorako UI]              | UI enhancements                 |
 [PF2e Drag Ruler Integration] | Drag ruler                      | [Recall Knowledge], [The Rules Lawyer]
+[PF2e Target Damage]          |                                 |
 [Pings]                       | Ping the map                    | [Recall Knowledge], [The Rules Lawyer]
 [PopOut!]                     |                                 | [Copper Dragon Games], [Recall Knowledge], [The Rules Lawyer]
 [Sync Token Names]            |                                 | [Copper Dragon Games]
@@ -237,6 +238,7 @@ Module                        | Description                              | Recom
 [PF2e Drag Ruler Integration]: https://foundryvtt.com/packages/pf2e-dragruler
 [pf2E Keybind Menagerie]:      https://foundryvtt.com/packages/pf2e-f-is-for-flatfooted
 [PF2e Rule Element Generator]: https://foundryvtt.com/packages/rule-element-generator
+[PF2e Target Damage]:          https://foundryvtt.com/packages/pf2e-target-damage
 [Pings]:                       https://foundryvtt.com/packages/pings
 [Popout Resizer]:              https://foundryvtt.com/packages/popout-resizer
 [PopOut!]:                     https://foundryvtt.com/packages/popout
