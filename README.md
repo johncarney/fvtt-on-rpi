@@ -179,6 +179,7 @@ http://foundryvtt.local:30000
 
 Module                        | Description                     | Recommended by
 ------------------------------|---------------------------------|--------------------------------------------------------------
+[Combat Enhancements]         | Combat tracker enhancements     | [The Rules Lawyer]
 [Dice So Nice!]               | 3D animated dice                | [Recall Knowledge], [The Rules Lawyer]
 [Dice Tray]                   |                                 | [Recall Knowledge], [The Rules Lawyer]
 [Health Estimate]             |                                 | [Recall Knowledge], [The Rules Lawyer]
@@ -216,6 +217,7 @@ Module                        | Description                              | Recom
 [Recall Knowledge]:    https://youtu.be/pcp4AaaxhGs
 [The Rules Lawyer]:    https://youtu.be/e9O8ClXhjxY
 
+[Combat Enhancements]:         https://foundryvtt.com/packages/combat-enhancements
 [DF Architect]:                https://foundryvtt.com/packages/df-architect
 [Dice So Nice!]:               https://foundryvtt.com/packages/dice-so-nice
 [Dice Tray]:                   https://foundryvtt.com/packages/dice-calculator
