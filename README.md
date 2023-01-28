@@ -189,6 +189,7 @@ Module                        | Description                     | Recommended by
 [Minimal UI]                  |                                 | [Copper Dragon Games]
 [PDF to Foundry (PF2e)]       | Import Adventure Path modules   | [Recall Knowledge], [The Rules Lawyer]
 [Perfect Vision]              | Monochrome darkvision           | [Recall Knowledge], [The Rules Lawyer]
+[PF2e Dorako UI]              | UI enhancements                 |
 [PF2e Drag Ruler Integration] | Drag ruler                      | [Recall Knowledge], [The Rules Lawyer]
 [Pings]                       | Ping the map                    | [Recall Knowledge], [The Rules Lawyer]
 [PopOut!]                     |                                 | [Copper Dragon Games], [Recall Knowledge], [The Rules Lawyer]
@@ -232,6 +233,7 @@ Module                        | Description                              | Recom
 [Multilevel Tokens]:           https://foundryvtt.com/packages/multilevel-tokens
 [PDF to Foundry (PF2e)]:       https://foundryvtt.com/packages/pdftofoundry
 [Perfect Vision]:              https://foundryvtt.com/packages/perfect-vision
+[Pf2e Dorako UI]:              https://foundryvtt.com/packages/pf2e-dorako-ui
 [PF2e Drag Ruler Integration]: https://foundryvtt.com/packages/pf2e-dragruler
 [pf2E Keybind Menagerie]:      https://foundryvtt.com/packages/pf2e-f-is-for-flatfooted
 [PF2e Rule Element Generator]: https://foundryvtt.com/packages/rule-element-generator
