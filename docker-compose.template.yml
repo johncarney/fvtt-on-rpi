@@ -5,7 +5,7 @@ services:
     image: felddy/foundryvtt:release
 
     # TODO: Sort out network and port-forwarding
-    hostname:     foundryvtt
+    hostname:     foundry
     network_mode: host
 
     init:    true
