@@ -177,34 +177,35 @@ http://foundryvtt.local:30000
 
 #### Recommended modules
 
-Module                        | Description                     | Recommended by
-------------------------------|---------------------------------|--------------------------------------------------------------
-[Combat Enhancements]         | Combat tracker enhancements     | [The Rules Lawyer]
-[Dice So Nice!]               | 3D animated dice                | [Recall Knowledge], [The Rules Lawyer]
-[Dice Tray]                   |                                 | [Recall Knowledge], [The Rules Lawyer]
-[Health Estimate]             |                                 | [Recall Knowledge], [The Rules Lawyer]
-[Herolab Online PF2e Import]  | Import Herolab characters       | [The Rules Lawyer]
-[Initiative Quick Change]     | Double-click initiative to edit | [Recall Knowledge]
-[Koboldworks - Ready Up!]     |                                 | [Copper Dragon Games]
-[Minimal UI]                  |                                 | [Copper Dragon Games]
-[PDF to Foundry (PF2e)]       | Import Adventure Path modules   | [Recall Knowledge], [The Rules Lawyer]
-[Perfect Vision]              | Monochrome darkvision           | [Recall Knowledge], [The Rules Lawyer]
-[PF2e Dorako UI]              | UI enhancements                 |
-[PF2e Drag Ruler Integration] | Drag ruler                      | [Recall Knowledge], [The Rules Lawyer]
-[PF2e Target Damage]          |                                 |
-[Pings]                       | Ping the map                    | [Recall Knowledge], [The Rules Lawyer]
-[PopOut!]                     |                                 | [Copper Dragon Games], [Recall Knowledge], [The Rules Lawyer]
-[Sync Token Names]            |                                 | [Copper Dragon Games]
-[Tidy UI]                     | Collapse checkboxes             | [The Rules Lawyer]
-[Token Action HUD]            |                                 | [Recall Knowledge], [The Rules Lawyer]
-[Torch]                       |                                 | [Recall Knowledge], [The Rules Lawyer]
+Module                        | Description                              | Recommended by
+------------------------------|------------------------------------------|--------------------------------------------------------------
+[Ambient Doors]               | Sound effects for doors                  | [The Rules Lawyer]
+[Combat Enhancements]         | Combat tracker enhancements              | [The Rules Lawyer]
+[Dice So Nice!]               | 3D animated dice                         | [Recall Knowledge], [The Rules Lawyer]
+[Dice Tray]                   |                                          | [Recall Knowledge], [The Rules Lawyer]
+[Foundry VTT Arms Reach]      | Limit player interactions with doors etc | [Copper Dragon Games]
+[Health Estimate]             |                                          | [Recall Knowledge], [The Rules Lawyer]
+[Herolab Online PF2e Import]  | Import Herolab characters                | [The Rules Lawyer]
+[Initiative Quick Change]     | Double-click initiative to edit          | [Recall Knowledge]
+[Koboldworks - Ready Up!]     |                                          | [Copper Dragon Games]
+[Minimal UI]                  |                                          | [Copper Dragon Games]
+[PDF to Foundry (PF2e)]       | Import Adventure Path modules            | [Recall Knowledge], [The Rules Lawyer]
+[Foundry VTT Arms Reach]      | Limit player interactions with doors etc | [Copper Dragon Games] Lawyer]
+[PF2e Dorako UI]              | UI enhancements                          |
+[PF2e Drag Ruler Integration] | Drag ruler                               | [Recall Knowledge], [The Rules Lawyer]
+[PF2e Target Damage]          |                                          |
+[Pings]                       | Ping the map                             | [Recall Knowledge], [The Rules Lawyer]
+[PopOut!]                     |                                          | [Copper Dragon Games], [Recall Knowledge], [The Rules Lawyer]
+[Sync Token Names]            |                                          | [Copper Dragon Games]
+[Tidy UI]                     | Collapse checkboxes                      | [The Rules Lawyer]
+[Token Action HUD]            |                                          | [Recall Knowledge], [The Rules Lawyer]
+[Torch]                       |                                          | [Recall Knowledge], [The Rules Lawyer]
 
 #### Things to evaluate
 
 Module                        | Description                              | Recommended by
 ------------------------------|------------------------------------------|------------------------------------------
 [DF Architect]                | Map building tools                       | [Copper Dragon Games]
-[Foundry VTT Arms Reach]      | Limit player interactions with doors etc | [Copper Dragon Games]
 [Multiface Tiles]             |                                          | [Copper Dragon Games]
 [Multilevel Tokens]           | Teleport tokens                          | [Recall Knowledge]
 [PF2e Rule Element Generator] | Automations(?)                           | [Recall Knowledge]
@@ -219,6 +220,7 @@ Module                        | Description                              | Recom
 [Recall Knowledge]:    https://youtu.be/pcp4AaaxhGs
 [The Rules Lawyer]:    https://youtu.be/e9O8ClXhjxY
 
+[Ambient Doors]:               https://foundryvtt.com/packages/ambientdoors
 [Combat Enhancements]:         https://foundryvtt.com/packages/combat-enhancements
 [DF Architect]:                https://foundryvtt.com/packages/df-architect
 [Dice So Nice!]:               https://foundryvtt.com/packages/dice-so-nice
@@ -253,7 +255,9 @@ Module                        | Description                              | Recom
 
 ## Connect to the outside world
 
-### ngrok
+### **ngrok**
+
+
 
 ## Tighten security
 
