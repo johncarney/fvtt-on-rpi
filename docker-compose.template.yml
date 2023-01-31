@@ -4,17 +4,18 @@ services:
   foundry:
     image: felddy/foundryvtt:release
 
-    # TODO: Sort out network and port-forwarding
-    hostname:     foundry
-    network_mode: host
+    hostname: foundry
 
     init:    true
     restart: "unless-stopped"
 
+    ports:
+      # HOST_PORT:CONTAINER_PORT
+      - "30000:30000"
+
     volumes:
-      - type:   bind
-        source: ~/fvtt-on-rpi/data
-        target: /data
+      # HOST_PATH:CONTAINER_PATH
+      - ~/fvtt-on-rpi/data:/data
 
     environment:
       # Foundry credentials
