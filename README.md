@@ -5,9 +5,10 @@ Developed in part from [Helping Ninja][helping-ninja]'s YouTube series on [Runni
 1. [Install Raspberry Pi OS](#install-os) on fresh microSD card
 2. [Install SSH key](#install-ssh-key) for easy, secure logins
 3. [Upgrade OS](#upgrade-os)
-4. [Install **docker**](#install-docker)
-5. [Install Foundry VTT](#install-foundry-vtt)
-6. [Tighten security](#tighten-security)
+4. [Install **git** & **python**](#install-git-and-python)
+5. [Install **docker** & **docker-compose**](#install-docker-and-docker-compose)
+6. [Install Foundry VTT](#install-foundry-vtt)
+7. [Tighten security](#tighten-security)
    1. [Disable password authentication](#disable-password-authentication)
 
 Note that the detailed instructions for steps 3 through 4 ask you to connect via SSH each time, but there is no reason you can't do them all in a single SSH session.
@@ -23,10 +24,10 @@ Option          | Setting
 ----------------|-------------------------------
 WiFi            | Do not enable
 hostname        | foundryvtt
-Enable SSH      | Use password authentication
+Enable SSH      | Allow public-key authentication only
 Username        | foundryvtt
 Password        | Get from password manager
-Wireless LAN    | Do not configure
+Wireless LAN    | Configure
 Locale settings | As appropriate for your region
 
 ## Install SSH key
@@ -58,9 +59,9 @@ ssh foundryvtt@foundryvtt.local
 
 ```
 sudo apt update
-sudo apt full-upgrade
+sudo apt full-upgrade --assume-yes
 sudo apt autoclean
-sudo apt autoremove
+sudo apt autoremove --assume-yes
 ```
 
 Once this is complete you should reboot your Raspberry Pi. This will close your SSH session.
@@ -69,51 +70,25 @@ Once this is complete you should reboot your Raspberry Pi. This will close your 
 sudo reboot
 ```
 
-## Install **docker**
+## Install **git** and **python**
 
-- [Foundry VTT: Raspberry Pi setup](#foundry-vtt-raspberry-pi-setup)
-  - [Install OS](#install-os)
-  - [Install SSH key](#install-ssh-key)
-  - [Upgrade OS](#upgrade-os)
-  - [Install **docker**](#install-docker)
-    - [Installing **docker**](#installing-docker)
-    - [Installing **docker-compose**](#installing-docker-compose)
-    - [Ensuring docker starts automatically](#ensuring-docker-starts-automatically)
-    - [Testing your docker installation](#testing-your-docker-installation)
-  - [Install Foundry VTT](#install-foundry-vtt)
-    - [Create folders](#create-folders)
-    - [Create **docker-compose.yml**](#create-docker-composeyml)
-    - [Connect to your Foundry VTT server](#connect-to-your-foundry-vtt-server)
-    - [Install game system](#install-game-system)
-    - [Install modules](#install-modules)
-      - [Content modules](#content-modules)
-      - [Recommended modules](#recommended-modules)
-      - [Things to evaluate](#things-to-evaluate)
-  - [Connect to the outside world](#connect-to-the-outside-world)
-    - [ngrok](#ngrok)
-  - [Tighten security](#tighten-security)
-    - [Disable password authentication](#disable-password-authentication)
+```
+sudo apt install git python3 python3-pip --assume-yes
+```
 
-Log into your Raspberry Pi and install **docker** and **docker-compose**.
-
-### Installing **docker**
+## Install **docker** and **docker-compose**
 
 ```
 curl -sSL https://get.docker.com | sh
 sudo usermod -aG docker ${USER}
-```
-
-### Installing **docker-compose**
-
-```
-sudo apt install python3 python3-pip
 sudo pip3 install docker-compose
-```
-
-### Ensuring docker starts automatically
-
-```
 sudo systemctl enable docker
+```
+
+Once this is complete you should reboot your Raspberry Pi. This will close your SSH session.
+
+```
+sudo reboot
 ```
 
 ### Testing your docker installation
@@ -121,6 +96,32 @@ sudo systemctl enable docker
 ```
 docker run hello-world
 ```
+
+## Setup github SSH key
+
+Create an SSH key and add it to your GitHub account as an authentication key.
+
+```
+ssh-keygen
+cat ~/.ssh/id_rsa.pub
+```
+
+Set your name and email address for git.
+
+```
+git config --global user.name "Alice Beaufort"
+git config --global user.email "alice.beaufort@example.com"
+```
+
+Then as a signing key.
+
+```
+git config --global gpg.format ssh
+git config --global user.signingkey $(pwd)/.ssh/id_rsa.pub
+git config --global commit.gpgsign true
+```
+
+## Download **fvtt-on-rpi** from github
 
 ## Install Foundry VTT
 
@@ -184,13 +185,13 @@ Module                        | Description                              | Recom
 [Dice So Nice!]               | 3D animated dice                         | [Recall Knowledge], [The Rules Lawyer]
 [Dice Tray]                   |                                          | [Recall Knowledge], [The Rules Lawyer]
 [Foundry VTT Arms Reach]      | Limit player interactions with doors etc | [Copper Dragon Games]
-[Foundry VTT Arms Reach]      | Limit player interactions with doors etc | [Copper Dragon Games] Lawyer]
 [Health Estimate]             |                                          | [Recall Knowledge], [The Rules Lawyer]
 [Herolab Online PF2e Import]  | Import Herolab characters                | [The Rules Lawyer]
 [Initiative Quick Change]     | Double-click initiative to edit          | [Recall Knowledge]
 [Koboldworks - Ready Up!]     |                                          | [Copper Dragon Games]
 [Minimal UI]                  |                                          | [Copper Dragon Games]
 [PDF to Foundry (PF2e)]       | Import Adventure Path modules            | [Recall Knowledge], [The Rules Lawyer]
+[Foundry VTT Arms Reach]      | Limit player interactions with doors etc | [Copper Dragon Games] Lawyer]
 [PF2e Dorako UI]              | UI enhancements                          |
 [PF2e Drag Ruler Integration] | Drag ruler                               | [Recall Knowledge], [The Rules Lawyer]
 [PF2e Target Damage]          |                                          |
@@ -203,21 +204,18 @@ Module                        | Description                              | Recom
 
 #### Things to evaluate
 
-Module                        | Description             | Recommended by
-------------------------------|-------------------------|------------------------------------------
-[DF Architect]                | Map building tools      | [Copper Dragon Games]
-[Give item to another player] |                         |
-[Multiface Tiles]             |                         | [Copper Dragon Games]
-[Multilevel Tokens]           | Teleport tokens         | [Recall Knowledge]
-[Party Inventory]             |                         |
-[PF2e Giveth]                 |                         |
-[pf2E Keybind Menagerie]      | PF2E keyboard shortcuts | [Recall Knowledge]
-[PF2e Rule Element Generator] | Automations(?)          | [Recall Knowledge]
-[Popout Resizer]              | Resize popouts          | [Copper Dragon Games], [The Rules Lawyer]
-[Simple Dice Roller]          |                         | [Recall Knowledge]
-[Smart Target]                | Targeting helpers       | [Recall Knowledge]
-[Stairways (Teleporter)]      | Teleport tokens         | [Copper Dragon Games]
-[Token Mold]                  | Token enhancements      | [Recall Knowledge]
+Module                        | Description                              | Recommended by
+------------------------------|------------------------------------------|------------------------------------------
+[DF Architect]                | Map building tools                       | [Copper Dragon Games]
+[Multiface Tiles]             |                                          | [Copper Dragon Games]
+[Multilevel Tokens]           | Teleport tokens                          | [Recall Knowledge]
+[PF2e Rule Element Generator] | Automations(?)                           | [Recall Knowledge]
+[pf2E Keybind Menagerie]      | PF2E keyboard shortcuts                  | [Recall Knowledge]
+[Popout Resizer]              | Resize popouts                           | [Copper Dragon Games], [The Rules Lawyer]
+[Simple Dice Roller]          |                                          | [Recall Knowledge]
+[Smart Target]                | Targeting helpers                        | [Recall Knowledge]
+[Stairways (Teleporter)]      | Teleport tokens                          | [Copper Dragon Games]
+[Token Mold]                  | Token enhancements                       | [Recall Knowledge]
 
 [Copper Dragon Games]: https://youtu.be/45-0rnEIZfM
 [Recall Knowledge]:    https://youtu.be/pcp4AaaxhGs
@@ -229,7 +227,6 @@ Module                        | Description             | Recommended by
 [Dice So Nice!]:               https://foundryvtt.com/packages/dice-so-nice
 [Dice Tray]:                   https://foundryvtt.com/packages/dice-calculator
 [Foundry VTT Arms Reach]:      https://foundryvtt.com/packages/foundryvtt-arms-reach
-[Give item to another player]: https://foundryvtt.com/packages/give-item
 [Health Estimate]:             https://foundryvtt.com/packages/healthEstimate
 [Herolab Online PF2e Import]:  https://foundryvtt.com/packages/hlo-importer
 [Initiative Quick Change]:     https://foundryvtt.com/packages/fvtt-initiative-quick-change
@@ -238,12 +235,10 @@ Module                        | Description             | Recommended by
 [Minimal UI]:                  https://foundryvtt.com/packages/minimal-ui
 [Multiface Tiles]:             https://foundryvtt.com/packages/multiface-tiles
 [Multilevel Tokens]:           https://foundryvtt.com/packages/multilevel-tokens
-[Party Inventory]:             https://foundryvtt.com/packages/party-inventory
 [PDF to Foundry (PF2e)]:       https://foundryvtt.com/packages/pdftofoundry
 [Perfect Vision]:              https://foundryvtt.com/packages/perfect-vision
 [Pf2e Dorako UI]:              https://foundryvtt.com/packages/pf2e-dorako-ui
 [PF2e Drag Ruler Integration]: https://foundryvtt.com/packages/pf2e-dragruler
-[PF2e Giveth]:                 https://foundryvtt.com/packages/pf2e-giveth
 [pf2E Keybind Menagerie]:      https://foundryvtt.com/packages/pf2e-f-is-for-flatfooted
 [PF2e Rule Element Generator]: https://foundryvtt.com/packages/rule-element-generator
 [PF2e Target Damage]:          https://foundryvtt.com/packages/pf2e-target-damage
@@ -270,3 +265,39 @@ Module                        | Description             | Recommended by
 ### Disable password authentication
 
 In order to tighten up security on your server, you should disable SSH password authentication and use SSH key authentication only.
+
+## Settings
+
+### Configure Settings
+
+- Core
+  - Left-Click to Release Objects: Enabled
+- Pathfinder 2nd Edition
+  - Automation
+    - *Rules-based vision*:                    Enabled
+    - *Immunities, weaknesses, & resistances*: Enabled
+    - *Effects auto-expire*:                   Enabled
+    - *Remove expired effects*:                Enabled
+    - *Flanking detection*:                    Enabled
+    - *NPCs are lootable*:                     Enabled?
+  - Metagame information
+    - *Shared party vision*: Enabled?
+  - *Campaign Feats*: Enabled
+- Follew Me!
+  - *Snap to grid*:             Enabled
+  - *Stop following in combat*: Enabled
+- Token Action HUD
+  - Direction: Down
+- PF2e Target Damage
+  - *Hide non-Player Token Targets*:   Checked?
+  - Hide Collapsible Buttons:          Checked
+  - Hide Original PF2e Damage Buttons: Checked
+- Walled Templates:
+  - Enable autotargetting: Display toggle button; default on
+
+### Configure Controls
+
+- DF Architect
+  - *Toggle Wall Chaining Lock*: Alt+W
+- Follow Me!
+  - FollowMe: Shift+F
