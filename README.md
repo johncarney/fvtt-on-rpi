@@ -7,8 +7,10 @@ Developed in part from [Helping Ninja][helping-ninja]'s YouTube series on [Runni
 3. [Upgrade OS](#upgrade-os)
 4. [Install **git** & **python**](#install-git-and-python)
 5. [Install **docker** & **docker-compose**](#install-docker-and-docker-compose)
-6. [Install Foundry VTT](#install-foundry-vtt)
-7. [Tighten security](#tighten-security)
+6. [Setup GitHub SSH key](#setup-github-ssh-key)
+7. [Setup GPG signing key (optional)](#setup-gpg-signing-key-optional)
+8. [Install Foundry VTT](#install-foundry-vtt)
+9. [Tighten security](#tighten-security)
    1. [Disable password authentication](#disable-password-authentication)
 
 Note that the detailed instructions for steps 3 through 4 ask you to connect via SSH each time, but there is no reason you can't do them all in a single SSH session.
@@ -97,7 +99,7 @@ sudo reboot
 docker run hello-world
 ```
 
-## Setup github SSH key
+## Setup GitHub SSH key
 
 Create an SSH key and add it to your GitHub account as an authentication key.
 
@@ -113,15 +115,9 @@ git config --global user.name "Alice Beaufort"
 git config --global user.email "alice.beaufort@example.com"
 ```
 
-Then as a signing key.
+## Setup GPG signing key (optional)
 
-```
-git config --global gpg.format ssh
-git config --global user.signingkey $(pwd)/.ssh/id_rsa.pub
-git config --global commit.gpgsign true
-```
-
-## Download **fvtt-on-rpi** from github
+To set up a GPG signing key for git commits, follow the instructions on GitHub under [Managing commit signature verification](https://docs.github.com/en/authentication/managing-commit-signature-verification).
 
 ## Install Foundry VTT
 
